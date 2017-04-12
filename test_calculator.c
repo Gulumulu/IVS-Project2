@@ -1,6 +1,7 @@
 #include "test_calculator.h"
 #include "calculator.h"
 #include <math.h>
+#include <stdio.h>
 
 int count_ok=0;
 int count_errors=0;
