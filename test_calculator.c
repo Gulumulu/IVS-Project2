@@ -10,7 +10,7 @@ int main(void) {
 
     /*scitani*/
     /*test1*/
-    TEST_EQUAL_FLOAT("ADD:1", 69.2357+78.21354, ADD(69.2357, 78.21354));
+    TEST_EQUAL_FLOAT("ADD:1", 69.2357+78.2135, ADD(69.2357, 78.2135));
     TEST_EQUAL_INT("ADD:1_ret", 0, error_ret);
 
     /*test2*/
@@ -28,7 +28,7 @@ int main(void) {
     TEST_EQUAL_INT("SUB:4_ret", 0, error_ret);
 
     /*test5*/
-    TEST_EQUAL_FLOAT("SUB:5", 895.23-175.37, SUB(895.23, 175.37));
+    TEST_EQUAL_FLOAT("SUB:5", 95.23-175.37, SUB(95.23, 175.37));
     TEST_EQUAL_INT("SUB:5_ret", 0, error_ret);
 
     /*test6*/
@@ -42,7 +42,7 @@ int main(void) {
     TEST_EQUAL_INT("MUL:7_ret", 0, error_ret);
 
     /*test8*/
-    TEST_EQUAL_FLOAT("MUL:8", 35.27*56*71, MUL(35.27, 56*71));
+    TEST_EQUAL_FLOAT("MUL:8", 35.27*56.71, MUL(35.27, 56.71));
     TEST_EQUAL_INT("MUL:8_ret", 0, error_ret);
 
     /*test9*/
@@ -54,23 +54,26 @@ int main(void) {
     /*test10*/
     TEST_EQUAL_FLOAT("DIV:10", 78.0/24.0, DIV(78.0, 24.0));
     TEST_EQUAL_INT("DIV:10_ret", 0, error_ret);
+    TEST_EQUAL_INT("DIV:10_div_zero", 0, error_div_zero);
 
     /*test11*/
     TEST_EQUAL_FLOAT("DIV:11", 845.23416/15.2486, DIV(845.23416, 15.2486));
     TEST_EQUAL_INT("DIV:11_ret", 0, error_ret);
+    TEST_EQUAL_INT("DIV:11_div_zero", 0, error_div_zero);
 
     /*test12*/
     TEST_EQUAL_FLOAT("DIV:12", 5396.48/456.2, DIV(5396.48, 456.2));
     TEST_EQUAL_INT("DIV:12_ret", 0, error_ret);
+    TEST_EQUAL_INT("DIV:12_div_zero", 0, error_div_zero);
 
 
     /*faktorial*/
     /*test13*/
-    TEST_EQUAL_FLOAT("FCT:13", 2.0, FCT(2.0));
+    TEST_EQUAL_FLOAT("FCT:13", 2, FCT(2));
     TEST_EQUAL_INT("FCT:13_ret", 0, error_ret);
 
     /*test14*/
-    TEST_EQUAL_FLOAT("FCT:14", 362880.0, FCT(9.0));
+    TEST_EQUAL_FLOAT("FCT:14", 362880, FCT(9));
     TEST_EQUAL_INT("FCT:14_ret", 0, error_ret);
 
     /*test15*/
