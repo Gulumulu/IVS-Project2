@@ -1,7 +1,6 @@
 #ifndef calculator_h
 #define calculator_h
 
-
 extern int error_ret;
 
 double ADD(double x, double y);
