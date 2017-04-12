@@ -2,6 +2,7 @@
 #define calculator_h
 
 extern int error_ret;
+extern int error_div_zero;
 
 double ADD(double x, double y);
 
@@ -11,7 +12,7 @@ double MUL(double x, double y);
 
 double DIV(double x, double y);
 
-double FCT(int n);
+int FCT(unsigned long long int n);
 
 double POW(double x, int n);
 
