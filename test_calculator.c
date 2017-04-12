@@ -122,11 +122,11 @@ int main(void) {
     TEST_EQUAL_FLOAT("ABSOL:24", fabs(-21574.854231), ABSOL(-21574.854231));
     TEST_EQUAL_INT("ABSOL:24_ret", 0, error_ret);
 
-    printf("___________________________________\n");
+    printf("_________________________________\n");
 
-    printf("%d testu proslo, %d testu neproslo.\n", count_ok, count_errors);
+    printf("%d tests passed, %d tests failed.\n", count_ok, count_errors);
 
-    printf("___________________________________\n");
+    printf("_________________________________\n");
     return 0;
 }
 

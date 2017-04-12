@@ -6,6 +6,11 @@
 #include <float.h>
 #include <math.h>
 
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define RESET   "\x1b[0m"
+
+
 const double EPS = 1e-14;
 
 #define TEST_EQUAL_INT(name,value1,value2)                                                  \
@@ -13,12 +18,14 @@ const double EPS = 1e-14;
         if (value1!=value2)                                                                 \
             {                                                                               \
             count_errors++;                                                                 \
-            printf("Failed test - %s, line: %d!\n",name, __LINE__);                         \
+            printf(RED  "Failed test - %s, line: %d!",name, __LINE__);                      \
+            printf(RESET    "\n");                                                          \
             }                                                                               \
         else                                                                                \
             {                                                                               \
             count_ok++;                                                                     \
-            printf("Passed test - %s, line: %d!\n", name, __LINE__);                        \
+            printf(GREEN    "Passed test - %s, line: %d!", name, __LINE__);                 \
+            printf(RESET    "\n");                                                          \
             }                                                                               \
 	}
 
@@ -27,12 +34,14 @@ const double EPS = 1e-14;
         if(fabs(value1-value2) >= EPS)                                                      \
             {                                                                               \
             count_errors++;                                                                 \
-            printf("Failed test - %s, line: %d!\n",name, __LINE__);                         \
+            printf(RED  "Failed test - %s, line: %d!",name, __LINE__);                      \
+            printf(RESET    "\n");                                                          \
             }                                                                               \
         else                                                                                \
             {                                                                               \
             count_ok++;                                                                     \
-            printf("Passed test - %s, line: %d!\n", name, __LINE__);                        \
+            printf(GREEN    "Passed test - %s, line: %d!", name, __LINE__);                 \
+            printf(RESET    "\n");                                                          \
             }                                                                               \
     }                                                                                       \
 
