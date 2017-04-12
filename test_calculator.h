@@ -27,7 +27,6 @@ const double EPS = 1e-14;
             }                                                                               \
 	}
 
-
 #define TEST_EQUAL_FLOAT(name, value1, value2)                                              \
     {                                                                                       \
         if(fabs(value1-value2) >= EPS)                                                      \
@@ -43,6 +42,7 @@ const double EPS = 1e-14;
             printf(ANSI_COLOR_RESET "\n");                                                  \
             }                                                                               \
     }                                                                                       \
+
 #endif
 
 
