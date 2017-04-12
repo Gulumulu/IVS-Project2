@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <math.h>
 #include "test_calculator.h"
 #include "calculator.h"
@@ -112,7 +111,7 @@ int main(void) {
     TEST_EQUAL_INT("ABSOL:22_ret", 0, error_ret);
 
     /*test23*/
-    TEST_EQUAL_FLOAT("ABSOL:23", fabs(-452.0), ABSOL((-452.0));
+    TEST_EQUAL_FLOAT("ABSOL:23", fabs(-452.0), ABSOL(-452.0));
     TEST_EQUAL_INT("ABSOL:23_ret", 0, error_ret);
 
     /*test24*/
@@ -124,7 +123,6 @@ int main(void) {
     printf("%d testu proslo, %d testu neproslo.\n", count_ok, count_errors);
 
     printf("___________________________________\n");
-    _getchar();
     return 0;
 }
 
