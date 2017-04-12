@@ -19,6 +19,7 @@ double POW(double x, int n);
 double SQRT(double x, int n);
 
 double ABSOL(double x);                                                                                    \
+
 #endif
 
 
