@@ -49,8 +49,22 @@ int FCT(unsigned long long int n){
 
 
 double POW(double x, int n){
-    error_ret=1;
-    return 0;
+    double pow = 1;
+    if (n == 0)
+        return 1;
+    else if (n < 0) {
+        for (n; n != 0; n++) {
+            pow = pow * x;
+        }
+        return 1 / pow;
+    }
+    else {
+        for (n; n != 0; n--) {
+            pow = x * pow;
+        }
+        return pow;
+    }
+    error_ret=0;
 }
 
 
