@@ -8,9 +8,11 @@
 double first;
 double second;
 
- double StrToDouble(char *str)
+gchar* get_whole_text(GtkTextBuffer *buffer)
 {
-    return g_ascii_strtod(str, NULL);
+    GtkTextIter start, end;
+    gtk_text_buffer_get_bounds(buffer, &start, &end);
+    return gtk_text_buffer_get_text(buffer, &start, &end, TRUE);
 }
 
 void window1_destroy()
@@ -68,62 +70,57 @@ void nine_clicked()
 gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "9", 1);
 }
 
-gchar* gtk_text_buffer_get_whole_text(GtkTextBuffer *buffer)
-{
-    GtkTextIter start, end;
-    gtk_text_buffer_get_bounds(buffer, &start, &end);
-    return gtk_text_buffer_get_text(buffer, &start, &end, TRUE);
-}
+
 
 void add_clicked()
 {
-char *text= gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(widg_2));
-first = StrToDouble(text);
+char *text= get_whole_text(gtk_text_view_get_buffer(widg_2));
+first = g_ascii_strtod(text, NULL);
 gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "+", 1);
 }
 
 void subtract_clicked()
 {
-char *text= gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(widg_2));
-first = StrToDouble(text);
+char *text= get_whole_text(gtk_text_view_get_buffer(widg_2));
+first = g_ascii_strtod(text, NULL);
 gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "-", 1);
 }
 
 void dot_clicked()
 {
-char *text= gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(widg_2));
-first = StrToDouble(text);
+char *text= get_whole_text(gtk_text_view_get_buffer(widg_2));
+first = g_ascii_strtod(text, NULL);
 gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), ".", 1);
 }
 
 void multiply_clicked()
 {
-char *text= gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(widg_2));
-first = StrToDouble(text);
+char *text= get_whole_text(gtk_text_view_get_buffer(widg_2));
+first = g_ascii_strtod(text, NULL);
 gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "*", 1);
 }
 
 void mod_clicked()
 {
-char *text= gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(widg_2));
-first = StrToDouble(text);
+char *text= get_whole_text(gtk_text_view_get_buffer(widg_2));
+first = g_ascii_strtod(text, NULL);
 gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "/", 1);
 }
 
 void faktorial_clicked()
 {
-char *text= gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(widg_2));
-first = StrToDouble(text);
+char *text= get_whole_text(gtk_text_view_get_buffer(widg_2));
+first = g_ascii_strtod(text, NULL);
 gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "!", 1);
 }
 
 void equal_clicked()
 {
 
-char *text= gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(widg_2));
+char *text= get_whole_text(gtk_text_view_get_buffer(widg_2));
 printf("%s",text);
 //int a = strlen(str);
-second = StrToDouble(text);
+second = g_ascii_strtod(text, NULL);
 gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "=", 1);
 gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1), text, -1);
 printf("%f,%f",first,second);
