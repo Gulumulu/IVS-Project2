@@ -43,7 +43,7 @@ int main()
       }
     }
 
-    printf("Smerodajna odchylka = %.6f", calculateSO(a, n));
+    printf("Smerodajna odchylka = %.6f\n", calculateSO(a, n));
 
     return 0;
 }
