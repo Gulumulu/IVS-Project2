@@ -67,7 +67,7 @@ double SQRT(double x, int n) {
 		return 0.0 / 0.0;
 	}
 	do {
-		tmp = (x / pow(result, n - 1) - result) / n;
+		tmp = (x / POW(result, n - 1) - result) / n;
 		result += tmp;
 	} while (tmp >= DEPS * 10 || tmp <= -DEPS * 10);
 	error_ret = 0;
@@ -85,12 +85,4 @@ double ABSOL(double x){
         return x;
     }
 }
-
-
-
-
-
-
-
-
 
