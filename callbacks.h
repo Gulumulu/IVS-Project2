@@ -46,9 +46,6 @@ void add_clicked();
 void subtract_clicked();
 
 
-void power_clicked();
-
-
 void square_clicked();
 
 
