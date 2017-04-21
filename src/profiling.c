@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+#include "calculator.h"
 
 float calculateSO(float *x, unsigned int N){
     float aver, aver2, sum = 0.0, sum2 = 0.0, pom;
@@ -9,21 +9,21 @@ float calculateSO(float *x, unsigned int N){
       sum += x[i];
     }
     aver = sum/N;
-    aver2 = pow(aver, 2);
+    aver2 = POW(aver, 2);
     for (int j = 0; j <= N; j++){
-      sum2 += pow(x[j], 2);
+      sum2 += POW(x[j], 2);
     }
     sum2 -= N * aver2;
     pom = sum2/(N - 1);
 
-    return sqrt(pom);
+    return SQRT(pom, 2);
 }
 
 int main()
 {
     int i;
     unsigned n;
-    float a[1000];
+    float a[1001];
 
     printf("Zadaj pocet cisel (1 - 1 000): ");
     if (!(scanf("%u", &n))){
@@ -43,7 +43,7 @@ int main()
       }
     }
 
-    printf("Smerodajna odchylka = %.6f\n", calculateSO(a, n));
+    printf("Smerodajna odchylka = %.4f\n", calculateSO(a, n));
 
     return 0;
 }
