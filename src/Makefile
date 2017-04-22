@@ -26,7 +26,7 @@ all: $(OBJS)
 	$(LD) src/callbacks.c src/calculator.c -o $(TARGET) $(OBJS) $(LDFLAGS)
     
 main.o: src/main.c
-	$(CC) -c $(CCFLAGS) home/tomas/Stiahnuté/kalkulacka/Calculator/src/main.c $(GTKLIB) -o main.o
+	$(CC) -c $(CCFLAGS) src/main.c $(GTKLIB) -o main.o
     
 clean:
 	rm -f *.o $(TARGET)
