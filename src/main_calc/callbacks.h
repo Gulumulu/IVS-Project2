@@ -13,6 +13,12 @@
 GtkTextView *widg_2;
 GtkTextView *widg_1;
 
+/**
+*@fn gchar* get_whole_text(GtkTextBuffer *buffer)
+*@brief loads the input of calculator
+*@param buffer pointer to the text in the window of calculator
+*@return string in the input of calculator
+*/
 gchar* get_whole_text(GtkTextBuffer *buffer);
 
 /**
