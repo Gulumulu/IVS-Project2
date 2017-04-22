@@ -63,8 +63,10 @@ void window1_destroy()
 
 void zero_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text)>46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	if (zero == 1)
 	{
 		gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2), "", -1);
@@ -76,73 +78,90 @@ void zero_clicked()
 
 void one_clicked()
 {
-	
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "1", 1);
 	zero = 0;
 }
 
 void two_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "2", 1);
 	zero = 0;
 }
 
 void three_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "3", 1);
 	zero = 0;
 }
 
 void four_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "4", 1);
 	zero = 0;
 }
 
 void five_clicked()
 {	
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "5", 1);
 	zero = 0;
 }
 
 void six_clicked()
 {	
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "6", 1);
 	zero = 0;
 }
 
 void seven_clicked()
 {	
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "7", 1);
 	zero = 0;
 }
 
 void eight_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "8", 1);
 	zero = 0;
 }
 
 void nine_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) > MAX_DIGITS) return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) >= MAX_DIGITS) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "9", 1);
 	zero = 0;
 }
@@ -150,7 +169,8 @@ void nine_clicked()
 void add_clicked()
 {
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) == 0) return;
+	if (strlen(text) == 0 || !(strcmp(text,"-"))) return;
+	
 	
 	if (secondon==1)
 		{
@@ -180,7 +200,9 @@ void add_clicked()
 
 void subtract_clicked()
 {
+
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (!(strcmp(text,"-"))) return;
 	if (strlen(text) == 0)
 	{	
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "-", 1);
@@ -214,8 +236,10 @@ void subtract_clicked()
 
 void dot_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) == 0) 
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text)>46) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) == 0) return;
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "0", 1);
 
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), ".", 1);
@@ -225,7 +249,7 @@ void dot_clicked()
 void multiply_clicked()
 {
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) == 0) return;
+	if (strlen(text) == 0 || !(strcmp(text,"-"))) return;
 	if (firston==0)
 		{
 		first = g_ascii_strtod(text, NULL);	
@@ -266,7 +290,7 @@ void multiply_clicked()
 void mod_clicked()
 {
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) == 0) return;
+	if (strlen(text) == 0 || !(strcmp(text,"-"))) return;
 	if (firston==0)
 		{
 		first = g_ascii_strtod(text, NULL);	
@@ -372,7 +396,11 @@ void power_clicked()
 
 void equal_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (last_op == '=') return;
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) > 46) return;
+
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	if ((strlen(text) == 0)&&(last_op!='!')&&(last_op!='|')) return;
 	zero = 1;
 	unsigned long long int ffirst;
@@ -441,7 +469,13 @@ void equal_clicked()
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1), "=", 1);
 	gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2), "", -1);
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), b, -1);
-
+	firston = 0;
+	secondon = 0;
+	last_op = '=';
+	first = 0;
+	second = 0;
+	zero = 1;
+	dot = 0;
 
 
 }
