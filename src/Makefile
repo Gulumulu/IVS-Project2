@@ -52,6 +52,7 @@ main.o : */main.c
 
 clean :
 	rm -f *.o *.tex *.sty $(TARGET) $(TEST)
+	rm -rf */html
 
 run : $(TARGET)
 	./$(TARGET)
@@ -66,4 +67,4 @@ test : $(TEST)
 	./$(TEST)
 
 pack :
-	zip -r $(ZIP) */CALC_v2.0
+	cd .. && cd .. && zip -r xminar31_xquirs00_xsvetl05_xzichj00.zip CALC_v2.0
