@@ -35,9 +35,9 @@ double DIV(double x, double y){
 }
 
 
-int FCT(unsigned long long int n){
-    int pom=1;
-    unsigned long long int tmp=n;
+unsigned long long int FCT(int n){
+    unsigned long long int pom=1;
+    int tmp=n;
     while(tmp>0){
         pom=pom*tmp;
         tmp--;
