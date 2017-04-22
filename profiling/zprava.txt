@@ -1,0 +1,4 @@
+Program travi najviac miesta pri nacitavani cisel a naslednom konvertovani
+cisla zo stringu. Vo funkcii calculateSO sa najviac casu zabera funkcia POW.
+Pri optimalizacii kodu sa treba zamerat na efektivnejsie metody nacitavania
+cisel a na menej volani POW.
