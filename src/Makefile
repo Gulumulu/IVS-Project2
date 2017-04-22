@@ -8,7 +8,7 @@
 # -testing
 #	make test
 # -packaging
-#	make pack
+#	make pack	
 # -documentation
 #	make doc
 # -running
@@ -16,51 +16,54 @@
 # -cleaning
 #	make clean
 
-# output name
 TARGET=calc
 
-# compiler
-CC=gcc
-# debug
-DEBUG=-g
-# optimisation
-OPT=-O0
-# warnings
-WARN=-Wall
+TEST=test_calculator
 
-.PHONY: run clean doc test
+ZIP=xlogin01_xlogin02_xlogin03_xlogin04.zip
+
+CC=gcc
+
+DEBUG=-g
+
+OPT=-O0
+
+WARN=-Wall -Werror
 
 PTHREAD=-pthread
 
 CCFLAGS=$(DEBUG) $(OPT) $(WARN) $(PTHREAD) -pipe
 
-CFLAGS=-std=c99 -Wall -Werror
+CFLAGS=-std=c99 $(WARN)
 
 GTKLIB=`pkg-config --cflags --libs gtk+-3.0`
 
-# linker
-LD=gcc
 LDFLAGS=$(PTHREAD) $(GTKLIB) -export-dynamic
 
-OBJS=    main.o
+OBJS=main.o
 
-all: $(OBJS)
-	$(LD) main_calc/calculator.c main_calc/callbacks.c -o $(TARGET) $(OBJS) $(LDFLAGS)
+.PHONY: run clean doc test pack
 
-main.o: main_calc/main.c
-	$(CC) -c $(CCFLAGS) main_calc/main.c $(GTKLIB) -o main.o
+all : $(OBJS)
+	$(CC) */calculator.c */callbacks.c -o $(TARGET) $(OBJS) $(LDFLAGS)
 
-clean:
-	rm -f *.o $(TARGET)
+main.o : */main.c
+	$(CC) -c $(CCFLAGS) */main.c $(GTKLIB) -o $@
 
-run: calc
-	./calc
+clean :
+	rm -f *.o *.tex *.sty $(TARGET) $(TEST)
 
-doc: main_calc/calculator.h
-	cd main_calc && doxygen Doxyfile && \
+run : $(TARGET)
+	./$(TARGET)
 
-test_calculator: test_calculator
-	$(CC)  $(CFLAGS) -o test_calculator main_calc/test_calculator.c main_calc/calculator.c
+doc: */calculator.h */callbacks.h
+	cd main_calc && doxygen Doxyfile
 
-test: test_calculator
-	./test_calculator
+test_calculator : test_calculator
+	$(CC)  $(CFLAGS) -o $@ */test_calculator.c */calculator.c
+
+test : $(TEST)
+	./$(TEST)
+
+pack :
+	zip -r $(ZIP) */CALC_v2.0
