@@ -6,10 +6,10 @@
 #include <stdbool.h>
 #include <gtk/gtk.h>
 
-double first;
+double first=0.0;
 int firston = 0;
 int secondon = 0;
-double second,third;
+double second=0.0,third=0.0;
 int last_op , morelast_op;
 int zero = 1;
 int dot=0;
@@ -151,11 +151,7 @@ void add_clicked()
 {
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	if (strlen(text) == 0) return;
-	if (zero==1) 
-	{	
-	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "+", 1);
-	return;
-	}
+	
 	if (secondon==1)
 		{
 		third = g_ascii_strtod(text, NULL);
@@ -218,6 +214,10 @@ void subtract_clicked()
 
 void dot_clicked()
 {
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	if (strlen(text) == 0) 
+	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "0", 1);
+
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), ".", 1);
 	dot=1;
 }
@@ -307,12 +307,14 @@ void mod_clicked()
 
 void faktorial_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) != 0) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	if (strlen(text) == 0) return;
+	
 	first = g_ascii_strtod(text, NULL);
 	last_op = '!';
 	
-
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1), text, -1);
 	gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2), "", -1);
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1), "!", 1);
@@ -320,8 +322,11 @@ void faktorial_clicked()
 
 void abs_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) != 0) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	if (strlen(text) == 0) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	first = g_ascii_strtod(text, NULL);
 	last_op = '|';
 	zero = 1;
@@ -335,7 +340,9 @@ void abs_clicked()
 
 void square_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) != 0) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	if (strlen(text) == 0) return;
 	first = g_ascii_strtod(text, NULL);
 	last_op='o';
@@ -350,7 +357,9 @@ void square_clicked()
 
 void power_clicked()
 {
-	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
+	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
+	if (strlen(text) != 0) return;
+	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	if (strlen(text) == 0) return;
 	first = g_ascii_strtod(text, NULL);
 	last_op='^';
@@ -364,8 +373,7 @@ void power_clicked()
 void equal_clicked()
 {
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) == 0) return;
-	second = g_ascii_strtod(text, NULL);
+	if ((strlen(text) == 0)&&(last_op!='!')&&(last_op!='|')) return;
 	zero = 1;
 	unsigned long long int ffirst;
 
@@ -378,7 +386,10 @@ void equal_clicked()
 		{
 		third = g_ascii_strtod(text, NULL);
 		second = my_switch(second,third,last_op);
+		if(dot==1)
 		first = my_switch(first,second,morelast_op);
+		else	
+		first_int = my_switch(first,second,morelast_op);
 		}
 	else
 		{
@@ -394,7 +405,12 @@ void equal_clicked()
 			case '*': if (dot==1) first = MUL(first, second);
 					else  first_int = MUL(first, second);
 				break;
-			case '/': first = DIV(first, second); dot=1;
+			case '/': if (second==0) 
+				{
+				gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2),"MATH ERROR", -1);
+				return;
+				}
+				first = DIV(first, second); dot=1;
 				break;
 			case '!': ffirst = FCT(first);
 				break;
