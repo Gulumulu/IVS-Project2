@@ -8,13 +8,11 @@
 #ifndef calculator_h
 #define calculator_h
 
-/**
-*@brief error codes
-*/
 extern int error_ret;
 extern int error_div_zero;
 
 /**
+*@fn double ADD(double x, double y)
 *@brief Function for addition of two numbers of type double
 *@param x first summand
 *@param y second summand
@@ -23,6 +21,7 @@ extern int error_div_zero;
 double ADD(double x, double y);
 
 /**
+*@fn double SUB(double x, double y)
 *@brief Function for subtraction of two numbers of type double
 *@param x minuend
 *@param y subtrahend
@@ -31,6 +30,7 @@ double ADD(double x, double y);
 double SUB(double x, double y);
 
 /**
+*@fn double MUL(double x, double y)
 *@brief Function for multiplication of two numbers of type double
 *@param x first factor
 *@param y second factor
@@ -39,6 +39,7 @@ double SUB(double x, double y);
 double MUL(double x, double y);
 
 /**
+*@fn double DIV(double x, double y)
 *@brief Function for division of two numbers of type double
 *@param x dividend
 *@param y divisor
@@ -48,22 +49,25 @@ double MUL(double x, double y);
 double DIV(double x, double y);
 
 /**
+*@fn unsigned long long int FCT(int n)
 *@brief Function for factorial of an integer
 *@param n natural number
 *@return factorial of n or NAN if error
 */
-int FCT(int n);
+unsigned long long int FCT(int n);
 
 /**
+*@fn double POW(double x, int n)
 *@brief Function for exponentiation count
 *@param x base
 *@param n exponent
 *@warning n must be positive number
 *@return product of x^n or NAN if error
 */
-double POW(double x, int n);
+double POW_(double x, int n);
 
 /**
+*@fn double SQRT(double x, int n)
 *@brief Function for nth root
 *@param x real number
 *@param n index
@@ -73,6 +77,7 @@ double POW(double x, int n);
 double SQRT(double x, int n);
 
 /**
+*@fn double ABSOL(double x)
 *@brief Function for absolute value of a number of type double
 *@param x real number
 *@return absolute value of x
