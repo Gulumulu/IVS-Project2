@@ -45,7 +45,7 @@ OBJS=main.o
 .PHONY: run clean doc test pack
 
 all : $(OBJS)
-	$(CC) */calculator.c */callbacks.c -o $(TARGET) $(OBJS) $(LDFLAGS)
+	$(CC) */calculator.c */callbacks.c -o $(TARGET) $(OBJS) $(LDFLAGS) -lm
 
 main.o : */main.c
 	$(CC) -c $(CCFLAGS) */main.c $(GTKLIB) -o $@
