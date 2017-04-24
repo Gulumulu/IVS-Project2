@@ -83,15 +83,15 @@ int main(void) {
 
     /*mocnina*/
     /*test16*/
-    TEST_EQUAL_FLOAT("POW:16", pow(12.635, 8), POW(12.635, 8));
+    TEST_EQUAL_FLOAT("POW:16", pow(12.635, 8), POW_(12.635, 8));
     TEST_EQUAL_INT("POW:16_ret", 0, error_ret);
 
     /*test17*/
-    TEST_EQUAL_FLOAT("POW:17", pow(51.7, 6), POW(51.7, 6));
+    TEST_EQUAL_FLOAT("POW:17", pow(51.7, 6), POW_(51.7, 6));
     TEST_EQUAL_INT("POW:17_ret", 0, error_ret);
 
     /*test18*/
-    TEST_EQUAL_FLOAT("POW:18", NAN, POW(85.47, 4.25));
+    TEST_EQUAL_FLOAT("POW:18", NAN, POW_(85.47, 4.25));
     TEST_EQUAL_INT("POW:18_ret", 0, error_ret);
 
 
