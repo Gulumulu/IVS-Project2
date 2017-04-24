@@ -13,6 +13,7 @@ double second=0.0,third=0.0;
 int last_op , morelast_op;
 int zero = 1;
 
+
 gchar* get_whole_text(GtkTextBuffer *buffer)
 {
 	GtkTextIter start, end;
@@ -28,10 +29,9 @@ void clear_clicked()
 	first = 0;
 	second = 0;
 	zero = 1;
-
+	
 	gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_1), "", -1);
 	gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2), "", -1);
-//	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "0", 1);
 }
 
 double my_switch(double num1, double num2, int sign)
@@ -116,7 +116,7 @@ void four_clicked()
 }
 
 void five_clicked()
-{	
+{
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
 	if (strlen(text) > 46) return;
 	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
@@ -126,7 +126,7 @@ void five_clicked()
 }
 
 void six_clicked()
-{	
+{
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
 	if (strlen(text) > 46) return;
 	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
@@ -136,7 +136,7 @@ void six_clicked()
 }
 
 void seven_clicked()
-{	
+{
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
 	if (strlen(text) > 46) return;
 	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
@@ -169,13 +169,12 @@ void add_clicked()
 {
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	if (strlen(text) == 0 || !(strcmp(text,"-"))) return;
-	
-	
+
 	if (secondon==1)
 		{
 		third = g_ascii_strtod(text, NULL);
-		second = my_switch(second,third,last_op);				
-		last_op=morelast_op;	
+		second = my_switch(second,third,last_op);
+		last_op=morelast_op;
 		}
 
 	if (firston==0)
@@ -203,7 +202,7 @@ void subtract_clicked()
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	if (!(strcmp(text,"-"))) return;
 	if (strlen(text) == 0)
-	{	
+	{
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "-", 1);
 	return;
 	}
@@ -211,7 +210,7 @@ void subtract_clicked()
 		{
 		third = g_ascii_strtod(text, NULL);
 		second = my_switch(second,third,last_op);
-		last_op=morelast_op;	
+		last_op=morelast_op;
 		}
 
 	if (firston==0)
@@ -238,10 +237,11 @@ void dot_clicked()
 	char *text = get_whole_text(gtk_text_view_get_buffer(widg_1));
 	if (strlen(text)>46) return;
 	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
-	if (strlen(text) == 0) return;
+	if (strlen(text) == 0) 
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), "0", 1);
 
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), ".", 1);
+	
 }
 
 void multiply_clicked()
@@ -250,7 +250,7 @@ void multiply_clicked()
 	if (strlen(text) == 0 || !(strcmp(text,"-"))) return;
 	if (firston==0)
 		{
-		first = g_ascii_strtod(text, NULL);	
+		first = g_ascii_strtod(text, NULL);
 		firston=1;
 		}
  	else
@@ -258,15 +258,15 @@ void multiply_clicked()
 		if (secondon==1)
 			{
 			third = g_ascii_strtod(text, NULL);
-			second = my_switch(second,third,last_op);		
-			last_op=morelast_op;	
+			second = my_switch(second,third,last_op);
+			last_op=morelast_op;
 			}
 		else
 			{
 			if ((last_op != '+')&&(last_op != '-'))
 				{
 				second=g_ascii_strtod(text, NULL);
-				first=my_switch(first,second,last_op);	
+				first=my_switch(first,second,last_op);
 				}
 			else
 	 			{
@@ -274,8 +274,7 @@ void multiply_clicked()
 	 			morelast_op=last_op;
 	  			secondon=1;
 	 			}
-			}	
-	
+			}
 	}
 	zero = 1;
 	last_op = '*';
@@ -291,7 +290,7 @@ void mod_clicked()
 	if (strlen(text) == 0 || !(strcmp(text,"-"))) return;
 	if (firston==0)
 		{
-		first = g_ascii_strtod(text, NULL);	
+		first = g_ascii_strtod(text, NULL);
 		firston=1;
 		}
  	else
@@ -299,15 +298,15 @@ void mod_clicked()
 		if (secondon==1)
 			{
 			third = g_ascii_strtod(text, NULL);
-			second = my_switch(second,third,last_op);		
-			last_op=morelast_op;	
+			second = my_switch(second,third,last_op);
+			last_op=morelast_op;
 			}
 		else
 			{
 			if ((last_op != '+')&&(last_op != '-'))
 				{
 				second=g_ascii_strtod(text, NULL);
-				first=my_switch(first,second,last_op);	
+				first=my_switch(first,second,last_op);
 				}
 			else
 	 			{
@@ -315,10 +314,10 @@ void mod_clicked()
 	 			morelast_op=last_op;
 	  			secondon=1;
 	 			}
-			}	
-	
+			}
 	}
 	zero = 1;
+	
 	last_op = '/';
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1),text,-1);
 	gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2),"",-1);
@@ -332,10 +331,10 @@ void faktorial_clicked()
 	if (strlen(text) != 0) return;
 	text = get_whole_text(gtk_text_view_get_buffer(widg_2));
 	if (strlen(text) == 0) return;
-	
+
 	first = g_ascii_strtod(text, NULL);
 	last_op = '!';
-	
+
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1), text, -1);
 	gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2), "", -1);
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1), "!", 1);
@@ -369,7 +368,7 @@ void square_clicked()
 	last_op='o';
 
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1),text, -1);
-	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1),"(odm ",5);
+	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1)," ^ 1/",5);
 	gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2), "", -1);
 
 }
@@ -402,31 +401,28 @@ void equal_clicked()
 	unsigned long long int ffirst;
 
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1), text, -1);
-	
+
 	int first_int;
-	
+
 
 	if (secondon==1)
 		{
 		third = g_ascii_strtod(text, NULL);
 		second = my_switch(second,third,last_op);
-		//if(dot==1)
 		first = my_switch(first,second,morelast_op);
-		//else	
-		first_int = my_switch(first,second,morelast_op);
 		}
 	else
 		{
 		second = g_ascii_strtod(text, NULL);
 		switch(last_op)
 			{
-			case '+':  first = ADD(first, second);
+			case '+': first = ADD(first, second);
 				break;
-			case '-': first = SUB(first, second); 
+			case '-': first = SUB(first, second);	
 				break;
 			case '*': first = MUL(first, second);	
 				break;
-			case '/': if (second==0) 
+			case '/': if (second==0)
 				{
 				gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2),"MATH ERROR", -1);
 				return;
@@ -435,29 +431,32 @@ void equal_clicked()
 				break;
 			case '!': ffirst = FCT(first);
 				break;
-			case '|':  first = ABS(first);
+			case '|': first = ABS(first);
+					
 				break;
-			case '^':  first = POW(first, second);
+			case '^': first = POW_(first, second);
+					
 				break;
 			case 'o':first = SQRT(first,second);
-				gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1),")", -1);
 				break;
-			
-			default:first = second;
+
+			default: first = second;
+					
 				break;
 			}
 		}
-	first_int=(int)first;
+
 	char b[10];
 	if (last_op=='!') snprintf(b,50, "%llu", ffirst);
-	else 
-	{ 
+	else
+	{
 	if ((first_int-first)==0)
 	sprintf(b, "%d", first_int);
 	else
-	//snprintf(b,48, "%f", first);
-	 gcvt(first,40,b);
-	}	
+	sprintf(b, "%g", first);
+	
+	}
+
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_1), "=", 1);
 	gtk_text_buffer_set_text(gtk_text_view_get_buffer(widg_2), "", -1);
 	gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(widg_2), b, -1);
@@ -467,5 +466,5 @@ void equal_clicked()
 	first = 0;
 	second = 0;
 	zero = 1;
-
+	
 }

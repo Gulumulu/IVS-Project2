@@ -8,7 +8,7 @@
 #include <gtk/gtk.h>
 #ifndef CALLBACKS_H
 #define CALLBACKS_H
-#define MAX_DIGITS 9
+#define MAX_DIGITS 20
 
 GtkTextView *widg_2;
 GtkTextView *widg_1;
@@ -20,6 +20,16 @@ GtkTextView *widg_1;
 *@return string in the input of calculator
 */
 gchar* get_whole_text(GtkTextBuffer *buffer);
+
+/**
+*@fn double my_switch(double num1, double num2, int sign)
+*@brief choose the operation witch was pressed
+*@param first number
+*@param second number
+*@param sign of operation
+*@return result of the operation
+**/
+double my_switch(double num1, double num2, int sign);
 
 /**
 *@fn void window1_destroy()
