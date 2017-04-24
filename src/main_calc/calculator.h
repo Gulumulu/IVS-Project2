@@ -64,7 +64,7 @@ unsigned long long int FCT(int n);
 *@warning n must be positive number
 *@return product of x^n or NAN if error
 */
-double POW(double x, int n);
+double POW_(double x, int n);
 
 /**
 *@fn double SQRT(double x, int n)
